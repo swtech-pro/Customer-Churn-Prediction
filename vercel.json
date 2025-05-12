@@ -6,9 +6,8 @@
     { "src": "/predict_churn", "dest": "api/predict_churn.py" }
   ],
   "functions": {
-    "api/**.py": {
-      "includeFiles": "api/**"
+    "api/predict_churn.py": {
+      "includeFiles": []
     }
   }
-
 }
