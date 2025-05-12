@@ -1,0 +1,8 @@
+{
+  "builds": [
+    { "src": "api/predict_churn.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/predict_churn", "dest": "api/predict_churn.py" }
+  ]
+}
