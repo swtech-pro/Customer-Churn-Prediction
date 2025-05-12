@@ -8,6 +8,8 @@ import numpy as np
 app = FastAPI()
 
 # Load model from GitHub or other hosted location
+print("Before Downloading model...")
+
 MODEL_URL = "https://raw.githubusercontent.com/swtech-pro/Customer-Churn-Prediction/main/churn_model.pkl"
 
 model = None
