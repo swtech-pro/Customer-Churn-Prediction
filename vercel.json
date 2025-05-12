@@ -6,8 +6,9 @@
     { "src": "/predict_churn", "dest": "api/predict_churn.py" }
   ],
   "functions": {
-    "api/predict_churn.py": {
-      "includeFiles": []
+    "api/**": {
+      "excludeFiles": "{.next,*.cache,node_modules,public,app}/**"
+
     }
   }
 }
