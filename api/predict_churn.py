@@ -1,10 +1,23 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 import joblib
+import requests
+import io
 import numpy as np
 
 app = FastAPI()
-model = joblib.load("churn_model.pkl")
+
+# Load model from GitHub or other hosted location
+MODEL_URL = "https://raw.githubusercontent.com/swtech-pro/Customer-Churn-Prediction/main/churn_model.pkl"
+
+model = None
+try:
+    print("Downloading model...")
+    response = requests.get(MODEL_URL)
+    model = joblib.load(io.BytesIO(response.content))
+    print("Model loaded successfully!")
+except Exception as e:
+    print(f"Model loading failed: {e}")
 
 @app.post("/predict_churn")
 async def predict_churn(request: Request):
